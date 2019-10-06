@@ -42,3 +42,21 @@ print ("Filtered RDD -> {}".format(filtered))
 # reduce
 add_nums = nums.reduce(add)
 print("Adding all numbers -> {}".format(add_nums))
+
+# accumalators and broadcast
+words_new = sc.broadcast(["scala", "java", "hadoop", "spark", "akka"]) 
+data = words_new.value 
+print ("Stored data -> %s" % (data)) 
+elem = words_new.value[2] 
+print ("Printing a particular element in RDD -> %s" % (elem))
+
+num = sc.accumulator(0)
+def f(x):
+    global num
+    num += x
+
+rdd = sc.parallelize([20, 30, 40, 50])
+rdd.foreach(f)
+
+final = num.value
+print("Accumalated value is -> {}".format(final))
