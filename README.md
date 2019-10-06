@@ -2,7 +2,7 @@
 Learning Pyspark for large scale data stream and beatch processing 
 
 # Prequisites
-## Python 3.6+
-## Pyspark library
-## Spark
-## Hadoop 2.7
+1. Python 3.6+
+2. Pyspark library
+3. Spark
+4. Hadoop 2.7
